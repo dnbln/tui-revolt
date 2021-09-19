@@ -1,11 +1,16 @@
-use robespierre::{Authentication, robespierre_cache::{Cache, CacheConfig}, robespierre_http::Http};
+use robespierre::{
+    robespierre_cache::{Cache, CacheConfig},
+    robespierre_http::Http,
+    robespierre_models::id::ChannelId,
+    Authentication,
+};
 use std::{error::Error, io, sync::Arc};
 use termion::{input::MouseTerminal, raw::IntoRawMode, screen::AlternateScreen};
 use tui::{backend::TermionBackend, Terminal};
 
 use tui_revolt::{
     util::event::{Config, Events},
-    Action, AppState,
+    Action, AppState, OpenAt,
 };
 
 async fn main_impl() -> Result<(), Box<dyn Error>> {
@@ -23,13 +28,17 @@ async fn main_impl() -> Result<(), Box<dyn Error>> {
 
     // Setup event handlers and the robespierre connection
     let cache = Cache::new(CacheConfig::default());
-    let mut events =
-        Events::with_config(Config::new(auth.clone()), Arc::clone(&cache));
+    let mut events = Events::with_config(Config::new(auth.clone()), Arc::clone(&cache));
 
     let http = Arc::new(Http::new(&auth).await?);
 
     // Create new app state
-    let mut app = AppState::new("01FEFZXHDQMD5ESK0XXW93JM5R".parse().unwrap(), cache, http);
+    let mut app = AppState::new(
+        cache,
+        http,
+        OpenAt::Channel("01F7ZSBSFHCAAJQ92ZGTY67HMN".parse::<ChannelId>().unwrap()),
+    )
+    .await?;
 
     loop {
         // Draw UI

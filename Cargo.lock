@@ -1057,7 +1057,7 @@ dependencies = [
 [[package]]
 name = "robespierre-cache"
 version = "0.3.1"
-source = "git+https://github.com/dblanovschi/robespierre?branch=main#12dbc96cee894e571e1d476adaefcbbc4aca7807"
+source = "git+https://github.com/dblanovschi/robespierre?branch=main#b413fdd44f7e50b2eb6684153b4919540aefd50b"
 dependencies = [
  "async-trait",
  "robespierre-models",
@@ -1067,7 +1067,7 @@ dependencies = [
 [[package]]
 name = "robespierre-client-core"
 version = "0.3.1"
-source = "git+https://github.com/dblanovschi/robespierre?branch=main#12dbc96cee894e571e1d476adaefcbbc4aca7807"
+source = "git+https://github.com/dblanovschi/robespierre?branch=main#b413fdd44f7e50b2eb6684153b4919540aefd50b"
 dependencies = [
  "async-trait",
  "robespierre-cache",
@@ -1081,7 +1081,7 @@ dependencies = [
 [[package]]
 name = "robespierre-events"
 version = "0.3.1"
-source = "git+https://github.com/dblanovschi/robespierre?branch=main#12dbc96cee894e571e1d476adaefcbbc4aca7807"
+source = "git+https://github.com/dblanovschi/robespierre?branch=main#b413fdd44f7e50b2eb6684153b4919540aefd50b"
 dependencies = [
  "async-std",
  "async-trait",
@@ -1099,7 +1099,7 @@ dependencies = [
 [[package]]
 name = "robespierre-http"
 version = "0.3.1"
-source = "git+https://github.com/dblanovschi/robespierre?branch=main#12dbc96cee894e571e1d476adaefcbbc4aca7807"
+source = "git+https://github.com/dblanovschi/robespierre?branch=main#b413fdd44f7e50b2eb6684153b4919540aefd50b"
 dependencies = [
  "reqwest",
  "robespierre-models",
@@ -1111,7 +1111,7 @@ dependencies = [
 [[package]]
 name = "robespierre-models"
 version = "0.3.1"
-source = "git+https://github.com/dblanovschi/robespierre?branch=main#12dbc96cee894e571e1d476adaefcbbc4aca7807"
+source = "git+https://github.com/dblanovschi/robespierre?branch=main#b413fdd44f7e50b2eb6684153b4919540aefd50b"
 dependencies = [
  "bitflags",
  "chrono",

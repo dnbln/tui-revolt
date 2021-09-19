@@ -1,9 +1,9 @@
 pub mod event;
 
-
-
 use rand::distributions::{Distribution, Uniform};
 use rand::rngs::ThreadRng;
+use robespierre::robespierre_cache::{Cache, HasCache};
+use robespierre::robespierre_http::{HasHttp, Http};
 use tui::widgets::ListState;
 
 #[derive(Clone)]
@@ -128,5 +128,19 @@ impl<T> StatefulList<T> {
 
     pub fn unselect(&mut self) {
         self.state.select(None);
+    }
+}
+
+pub struct CH<'a>(pub &'a Cache, pub &'a Http);
+
+impl<'a> HasCache for CH<'a> {
+    fn get_cache(&self) -> Option<&Cache> {
+        Some(self.0)
+    }
+}
+
+impl<'a> HasHttp for CH<'a> {
+    fn get_http(&self) -> &Http {
+        self.1
     }
 }
